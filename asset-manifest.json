@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/nhc-forum/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/nhc-forum/static/js/main.a45b5f1f.chunk.js",
-    "main.js.map": "/nhc-forum/static/js/main.a45b5f1f.chunk.js.map",
+    "main.js": "/nhc-forum/static/js/main.b3f6fa5d.chunk.js",
+    "main.js.map": "/nhc-forum/static/js/main.b3f6fa5d.chunk.js.map",
     "runtime-main.js": "/nhc-forum/static/js/runtime-main.c1db3f16.js",
     "runtime-main.js.map": "/nhc-forum/static/js/runtime-main.c1db3f16.js.map",
     "static/js/2.6894aa0f.chunk.js": "/nhc-forum/static/js/2.6894aa0f.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.c1db3f16.js",
     "static/js/2.6894aa0f.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.a45b5f1f.chunk.js"
+    "static/js/main.b3f6fa5d.chunk.js"
   ]
 }
