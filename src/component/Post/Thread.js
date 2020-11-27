@@ -1,7 +1,7 @@
-import Component from 'react';
+import React from 'react';
 import 'style/Thread.css';
 
-class Thread extends Component {
+class Thread extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,7 +14,7 @@ class Thread extends Component {
     render() {
         return (
             <div className="Thread"> 
-                
+                <h1>Thread</h1>
             </div>
         );
     }

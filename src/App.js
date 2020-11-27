@@ -1,16 +1,21 @@
+import React from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+
+import Login from './component/Auth/Login';
+import Register from './component/Auth/Register';
+import Home from './component/Public/Home';
+
 import './App.css';
-import 'react-router-dom'
 
 function App() {
   return (
     <BrowserRouter>
-    <Switch>
-      <Route path = "/login"                          component = { Login }/>
-      <Route path = "/register"                       component = { Register } />
-      <Route path = "/forgetPassword"                 component = { ForgetPassword } />
-      <Route path = "/"                               component = { Home } />
-    </Switch>
-  </BrowserRouter>
+      <Switch>
+        <Route path = "/login"                          component = { Login }/>
+        <Route path = "/register"                       component = { Register } />
+        <Route path = "/"                               component = { Home } />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

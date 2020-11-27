@@ -1,9 +1,13 @@
-import Component from 'react';
+import React from 'react';
 
 
-class Login extends Component {
+class Login extends React.Component {
     render() {
-        
+        return (
+            <div>
+                <h1>Login</h1>
+            </div>
+        );
     }
 }
 
