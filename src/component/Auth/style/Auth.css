@@ -1,17 +1,17 @@
 .root {
-    height: 100vh;
+    height          : 100vh;
     background-image: url(https://wallpaperaccess.com/full/1682029.jpg);
     background-position: center;
 }   
 
 .paper {
     background-color: white;
-    height: 100;
-    width: 100;
-    margin: 30px;
-    align-self: auto;
-    display: flex;
-    flex-direction: column;
+    height          : 100;
+    width           : 100;
+    margin          : 30px;
+    align-self      : auto;
+    display         : flex;
+    flex-direction  : column;
 }
 
 .textfield {

@@ -1,12 +1,18 @@
 export const validate = (value, type) => {
     const patterns = {
-        email: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-        password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+        email: {
+            type: 'email', 
+            pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+        },
+        password: {
+            type: 'password',
+            pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+        } 
     }
 
-    if (type === 'email')
-        return patterns.email.test(value);
-    else if (type === 'password')
-        return patterns.password.test(value);
+    for (var key in patterns) {
+        if (patterns[key].type === type)
+            return patterns[key].pattern.test(value);
+    }
     return false;
 }

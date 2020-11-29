@@ -9,11 +9,11 @@ import {
     Button,
     Link,
     Typography,
-    CssBaseline
+    CssBaseline,
 } from "@material-ui/core";
 
-import { validate } from './api/Validate';
-import { submitLogin } from './api/SubmitLogin';
+import { validate } from "./api/Validate";
+import { submitLogin } from "./api/SubmitLogin";
 
 import "./style/Auth.css";
 
@@ -27,8 +27,8 @@ class Login extends React.Component {
                 errorMsg: "",
             },
             password: {
-                value: ''
-            }
+                value: "",
+            },
         };
     }
 
@@ -39,69 +39,78 @@ class Login extends React.Component {
                 <Grid item xs sm md lg></Grid>
                 <Grid item xs="12" sm="8" md="6" lg="4" alignContent="center">
                     <div align="center">
-                        <Paper className="paper" variant='outlined'>
+                        <Paper className="paper" variant="outlined">
                             <div>
                                 <h1>Log in to NHC Forum</h1>
                             </div>
                             <div>
                                 <TextField
-                                    id="email"
-                                    label="Email"
-                                    className="textfield"
-                                    type="text"
-                                    value={this.state.email.value}
-                                    variant="outlined"
+                                    id           = "email"
+                                    label        = "Email"
+                                    className    = "textfield"
+                                    type         = "text"
+                                    value        = {this.state.email.value}
+                                    variant      = "outlined"
                                     required
-                                    autoComplete="email"
-                                    margin="normal"
-                                    error={this.state.email.incorrect}
-                                    onChange={(event) => {
-                                        let correctStatus = validate(event.target.value, 'email') || event.target.value === '';
+                                    autoComplete = "email"
+                                    margin       = "normal"
+                                    error        = {this.state.email.incorrect}
+                                    helperText   = {this.state.email.errorMsg}
+                                    onChange     = {(event) => {
+                                        let correctStatus =
+                                            validate(event.target.value, "email") ||
+                                            event.target.value === "";
                                         this.setState({
                                             email: {
                                                 value: event.target.value,
                                                 incorrect: !correctStatus,
-                                                errorMsg: correctStatus ? '' : "Invalid email address"
-                                            }
-                                        })
+                                                errorMsg: correctStatus ? "" : "Invalid email address",
+                                            },
+                                        });
                                     }}
-                                    helperText={this.state.email.errorMsg}
                                 />
                                 <TextField
-                                    id="password"
-                                    className="textfield"
-                                    label="Password"
-                                    type="password"
-                                    variant="outlined"
+                                    id           = "password"
+                                    className    = "textfield"
+                                    label        = "Password"
+                                    type         = "password"
+                                    variant      = "outlined"
                                     required
-                                    autoComplete="current-password"
-                                    margin="normal"
-                                    onChange={(event)=>{
+                                    autoComplete = "current-password"
+                                    margin       = "normal"
+                                    onChange     = {(event) => {
                                         this.setState({
                                             password: {
-                                                value: event.target.value
-                                            }
-                                        })
+                                                value: event.target.value,
+                                            },
+                                        });
                                     }}
                                 />
                             </div>
                             <div>
                                 <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.state.email.incorrect ? () => {
-                                        this.setState({
-                                            email: {
-                                                value: '',
-                                                incorrect: true,
-                                                errorMsg: 'Invalid email address! Please try again!'
+                                    variant   = "contained"
+                                    color     = "primary"
+                                    className = "button"
+                                    onClick   = {
+                                        this.state.email.incorrect ? 
+                                            () => {
+                                                this.setState({
+                                                    email: {
+                                                        value: "",
+                                                        incorrect: true,
+                                                        errorMsg:
+                                                            "Invalid email address! Please try again!",
+                                                    },
+                                                });
                                             }
-                                        })
-                                    } : () => {
-                                        submitLogin(this.state.email.value, this.state.password.value)
-                                    }}
-                                    className='button'
-                                >
+                                            : () => {
+                                                submitLogin(
+                                                    this.state.email.value,
+                                                    this.state.password.value
+                                                );
+                                            }
+                                        }>
                                     Login
                                 </Button>
                             </div>
