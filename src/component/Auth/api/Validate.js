@@ -4,6 +4,10 @@ export const validate = (value, type) => {
             type: 'email', 
             pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
         },
+        username : {
+            type: 'username',
+            pattern: /^(?=.{6,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9]+(?<![_.])$/
+        },
         password: {
             type: 'password',
             pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/

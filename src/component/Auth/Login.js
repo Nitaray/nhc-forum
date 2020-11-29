@@ -10,7 +10,10 @@ import {
     Link,
     Typography,
     CssBaseline,
+    Avatar,
 } from "@material-ui/core";
+
+import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 import { validate } from "./api/Validate";
 import { submitLogin } from "./api/SubmitLogin";
@@ -21,7 +24,7 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: {
+            username: {
                 value: "",
                 incorrect: false,
                 errorMsg: "",
@@ -44,27 +47,32 @@ class Login extends React.Component {
                                 <h1>Log in to NHC Forum</h1>
                             </div>
                             <div>
+                                <Avatar className='avatar'>
+                                    <LockOpenIcon color='secondary'/>
+                                </Avatar>
+                            </div>
+                            <div>
                                 <TextField
-                                    id           = "email"
-                                    label        = "Email"
+                                    id           = "username"
+                                    label        = "Username"
                                     className    = "textfield"
                                     type         = "text"
-                                    value        = {this.state.email.value}
+                                    value        = {this.state.username.value}
                                     variant      = "outlined"
                                     required
-                                    autoComplete = "email"
+                                    autoComplete = "username"
                                     margin       = "normal"
-                                    error        = {this.state.email.incorrect}
-                                    helperText   = {this.state.email.errorMsg}
+                                    error        = {this.state.username.incorrect}
+                                    helperText   = {this.state.username.errorMsg}
                                     onChange     = {(event) => {
                                         let correctStatus =
-                                            validate(event.target.value, "email") ||
+                                            validate(event.target.value, "username") ||
                                             event.target.value === "";
                                         this.setState({
-                                            email: {
+                                            username: {
                                                 value: event.target.value,
                                                 incorrect: !correctStatus,
-                                                errorMsg: correctStatus ? "" : "Invalid email address",
+                                                errorMsg: correctStatus ? "" : "Invalid username",
                                             },
                                         });
                                     }}
@@ -93,20 +101,20 @@ class Login extends React.Component {
                                     color     = "primary"
                                     className = "button"
                                     onClick   = {
-                                        this.state.email.incorrect ? 
+                                        this.state.username.incorrect ? 
                                             () => {
                                                 this.setState({
-                                                    email: {
+                                                    username: {
                                                         value: "",
                                                         incorrect: true,
                                                         errorMsg:
-                                                            "Invalid email address! Please try again!",
+                                                            "Invalid username! Please try again!",
                                                     },
                                                 });
                                             }
                                             : () => {
                                                 submitLogin(
-                                                    this.state.email.value,
+                                                    this.state.username.value,
                                                     this.state.password.value
                                                 );
                                             }

@@ -18,7 +18,13 @@
     width: 65%;
 }
 
+.avatar {
+    align-self      : center;
+    margin          : 3%;
+    background-color: green;
+}
+
 .button {
-    width: 65%;
+    width           : 65%;
 }
 
