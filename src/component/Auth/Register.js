@@ -116,6 +116,7 @@ class Register extends React.Component {
                                     required
                                     autoComplete="new-password"
                                     margin="normal"
+                                    value = {this.state.password.value}
                                     error = {this.state.password.incorrect}
                                     helperText = {this.state.password.errorMsg}
                                     onChange={(event) => {
@@ -141,6 +142,7 @@ class Register extends React.Component {
                                     required
                                     autoComplete="new-password"
                                     margin="normal"
+                                    value = {this.state.confirmPassword.value}
                                     error = {this.state.confirmPassword.incorrect}
                                     helperText = {this.state.confirmPassword.errorMsg}
                                     onChange={(event) => {
@@ -175,6 +177,24 @@ class Register extends React.Component {
                                                         errorMsg:
                                                             "Invalid information! Please try again!",
                                                     },
+                                                    username: {
+                                                        value: "",
+                                                        incorrect: true,
+                                                        errorMsg:
+                                                            "Invalid information! Please try again!",
+                                                    }, 
+                                                    password: {
+                                                        value: "",
+                                                        incorrect: true,
+                                                        errorMsg:
+                                                            "Invalid information! Please try again!",
+                                                    }, 
+                                                    confirmPassword: {
+                                                        value: "",
+                                                        incorrect: true,
+                                                        errorMsg:
+                                                            "Invalid information! Please try again!",
+                                                    }
                                                 });
                                             }
                                             : () => {
