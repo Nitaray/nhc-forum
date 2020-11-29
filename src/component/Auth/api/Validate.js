@@ -2,7 +2,7 @@ export const validate = (value, type) => {
     const patterns = {
         email: {
             type: 'email', 
-            pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+            pattern: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/
         },
         username : {
             type: 'username',
