@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/nhc-forum/static/css/main.9e6c71e8.chunk.css",
-    "main.js": "/nhc-forum/static/js/main.f2b4da33.chunk.js",
+    "main.css": "/nhc-forum/static/css/main.dfe1b502.chunk.css",
+    "main.js": "/nhc-forum/static/js/main.0f6e4603.chunk.js",
     "runtime-main.js": "/nhc-forum/static/js/runtime-main.ba0b7871.js",
     "static/js/2.3e7e07bc.chunk.js": "/nhc-forum/static/js/2.3e7e07bc.chunk.js",
     "static/js/3.1d6b1f5b.chunk.js": "/nhc-forum/static/js/3.1d6b1f5b.chunk.js",
@@ -11,7 +11,7 @@
   "entrypoints": [
     "static/js/runtime-main.ba0b7871.js",
     "static/js/2.3e7e07bc.chunk.js",
-    "static/css/main.9e6c71e8.chunk.css",
-    "static/js/main.f2b4da33.chunk.js"
+    "static/css/main.dfe1b502.chunk.css",
+    "static/js/main.0f6e4603.chunk.js"
   ]
 }
