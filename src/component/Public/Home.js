@@ -7,19 +7,22 @@ import NavBar from './NavBar'
 class Home extends React.Component {
     render() {
         return (
-            <div align='center'>
-                <div>
-                    <h1>Home</h1>
-                </div>
-                <div>
-                    <Button variant='contained' color='primary' component={Link}to='/login'>
-                        Hi
-                    </Button>
+            <React.Fragment>
+                <div align='center'>
+                    <div>
+                        <h1>Home</h1>
+                    </div>
+                    <div>
+                        <Button variant='contained' color='primary' component={Link}to='/login'>
+                            Hi
+                        </Button>
+                    </div>
                 </div>
                 <div>
                     <NavBar/>
                 </div>
-            </div>
+
+            </React.Fragment>
         )
     }
 }
