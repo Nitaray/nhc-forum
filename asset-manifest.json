@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/nhc-forum/static/css/main.e207c3f9.chunk.css",
-    "main.js": "/nhc-forum/static/js/main.728b484b.chunk.js",
-    "runtime-main.js": "/nhc-forum/static/js/runtime-main.9edafc58.js",
-    "static/js/2.c08a8d13.chunk.js": "/nhc-forum/static/js/2.c08a8d13.chunk.js",
-    "static/js/3.c74f7daa.chunk.js": "/nhc-forum/static/js/3.c74f7daa.chunk.js",
-    "index.html": "/nhc-forum/index.html",
-    "static/js/2.c08a8d13.chunk.js.LICENSE.txt": "/nhc-forum/static/js/2.c08a8d13.chunk.js.LICENSE.txt"
+    "main.css": "./static/css/main.e207c3f9.chunk.css",
+    "main.js": "./static/js/main.85647d70.chunk.js",
+    "runtime-main.js": "./static/js/runtime-main.b5bb7f95.js",
+    "static/js/2.c08a8d13.chunk.js": "./static/js/2.c08a8d13.chunk.js",
+    "static/js/3.c74f7daa.chunk.js": "./static/js/3.c74f7daa.chunk.js",
+    "index.html": "./index.html",
+    "static/js/2.c08a8d13.chunk.js.LICENSE.txt": "./static/js/2.c08a8d13.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9edafc58.js",
+    "static/js/runtime-main.b5bb7f95.js",
     "static/js/2.c08a8d13.chunk.js",
     "static/css/main.e207c3f9.chunk.css",
-    "static/js/main.728b484b.chunk.js"
+    "static/js/main.85647d70.chunk.js"
   ]
 }
