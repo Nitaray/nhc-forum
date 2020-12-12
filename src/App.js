@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='nhc-forum'>
       <Switch>
         <Route path = "/login"                          component = { Login }/>
         <Route path = "/register"                       component = { Register } />
