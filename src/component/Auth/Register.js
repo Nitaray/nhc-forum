@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 
 import { validate } from "./api/Validate";
-import { submitRegister } from "./api/registerAPI";
+import { submitRegister } from "./api/authAPI";
 
 import "./style/Auth.css";
 
@@ -49,7 +49,7 @@ class Register extends React.Component {
             <Grid container className="root">
                 <CssBaseline />
                 <Grid item xs sm md lg></Grid>
-                <Grid item xs="12" sm="8" md="6" lg="4" alignContent="center">
+                <Grid item xs={12} sm={8} md={6} lg={4}>
                     <div align="center">
                         <Paper className="paper" variant="outlined">
                             <div>
@@ -212,7 +212,7 @@ class Register extends React.Component {
                             </div>
                             <div>
                                 <Grid container>
-                                    <Grid item xs="12">
+                                    <Grid item xs={12}>
                                         <Link component={RouteLink} to="/login">
                                             <Typography variant="body1" align="center">
                                                 Already have an account? Log in here!

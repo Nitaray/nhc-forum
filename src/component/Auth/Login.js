@@ -16,7 +16,7 @@ import {
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 import { validate } from "./api/Validate";
-import { submitLogin } from "./api/loginAPI";
+import { submitLogin } from "./api/authAPI";
 
 import "./style/Auth.css";
 
@@ -40,7 +40,7 @@ class Login extends React.Component {
             <Grid container className="root">
                 <CssBaseline />
                 <Grid item xs sm md lg></Grid>
-                <Grid item xs="12" sm="8" md="6" lg="4" alignContent="center">
+                <Grid item xs={12} sm={8} md={6} lg={4}>
                     <div align="center">
                         <Paper className="paper" variant="outlined">
                             <div>
@@ -124,7 +124,7 @@ class Login extends React.Component {
                             </div>
                             <div>
                                 <Grid container>
-                                    <Grid item xs="12">
+                                    <Grid item xs={12}>
                                         <Link component={RouteLink} to="/register">
                                             <Typography variant="body1" align="center">
                                                 Don't have an account? Sign up here!

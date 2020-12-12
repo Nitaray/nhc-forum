@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
-import threadAPI from '../Post/api/threadAPI'
 
 import NavBar from './NavBar'
 
