@@ -6,20 +6,23 @@ export async function getThread(id) {
         ThreadID: id
     };
     const url = serverURL + threadAPIurl + '/getThread';
-    const thread = {
+    const res = {
         success: true,
-        data: {}
+        thread: {}
     };
     try {
         let res = await get(url, { params });
-        thread.data = res.data;
+        res.thread = res.data;
     } catch (err) {
-        thread.success = false;
+        res.success = false;
         console.log(err);
     }
-    return thread;
+    return res;
 }
 export async function postThread(title, content, userID, userToken) {
+    const res = {
+        success: true
+    }
     const body = {
         ThreadTitle: title,
         Content: content,
@@ -28,12 +31,12 @@ export async function postThread(title, content, userID, userToken) {
     };
     const url = serverURL + threadAPIurl + '/postThread';
     try {
-        let res = await post(url, body);
-        console.log(res);
-
+        await post(url, body);
     } catch (err) {
+        res.success = false;
         console.log(err);
     }
+    return res;
 }
 export async function updateThreadContent(threadID, newContent, userID, userToken) {
     const body = {
