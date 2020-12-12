@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 
 import { validate } from "./api/Validate";
-import { submitRegister } from "./api/SubmitRegister";
+import { submitRegister } from "./api/registerAPI";
 
 import "./style/Auth.css";
 

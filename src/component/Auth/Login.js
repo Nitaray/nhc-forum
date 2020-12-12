@@ -16,7 +16,7 @@ import {
 import LockOpenIcon from '@material-ui/icons/LockOpen';
 
 import { validate } from "./api/Validate";
-import { submitLogin } from "./api/SubmitLogin";
+import { submitLogin } from "./api/loginAPI";
 
 import "./style/Auth.css";
 
@@ -44,7 +44,7 @@ class Login extends React.Component {
                     <div align="center">
                         <Paper className="paper" variant="outlined">
                             <div>
-                                <h1>Log in to NHC Forum</h1>
+                                <h1>LOGIN TO NHC FORUM</h1>
                             </div>
                             <div>
                                 <Avatar className='avatar'>
