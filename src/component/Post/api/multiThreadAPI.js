@@ -9,7 +9,7 @@ export const getHotThreads = async () => {
     const url = serverURL + hotPostsAPIurl;
     try {
         let resp = await get(url);
-        res.threads = resp.data;
+        res.threads = resp.data.IDs;
     } catch (err) {
         res.success = false;
         console.log(err);
@@ -24,7 +24,8 @@ export const getFollowedThreads = async (userID, userToken) => {
     }
     const url = serverURL + followedPostAPIurl + '/getFollows';
     try {
-        res.threads = await get(url);
+        let resp = await get(url);
+        res.threads = resp.data.IDs
     } catch (err) {
         res.success = false;
         console.log(err);

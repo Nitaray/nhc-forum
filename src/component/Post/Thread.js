@@ -1,7 +1,7 @@
 import React from 'react';
 import 'style/Thread.css';
 
-import getThread from './api/getThread'
+import { getThread } from './api/threadAPI'
 
 class Thread extends React.Component {
     constructor(props) {
@@ -15,15 +15,19 @@ class Thread extends React.Component {
     }
 
     componentDidMount() {
-        let threadData = getThread(this.props.id);
+        let threadData = {};
+        getThread(this.props.id).then((res) => {
+            if (res.success)
+                threadData = res.thread;
+        });
         this.setState({
             author: {
-                id: threadData.author_id,
-                name: threadData.author_name
+                id: threadData.AuthorID,
+                name: threadData.AuthorUsername
             },
-            title: threadData.title, 
-            content: threadData.content,
-            comments: threadData.comments
+            title: threadData.Title, 
+            content: threadData.Content,
+            comments: threadData.CommentIDs
         })
     }
     

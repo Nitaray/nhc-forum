@@ -8,12 +8,13 @@ import Home from './component/Public/Home';
 import './App.css';
 
 function App() {
+  var _sessionToken;
   return (
     <BrowserRouter basename='nhc-forum'>
       <Switch>
-        <Route path = "/login"                          component = { Login }/>
-        <Route path = "/register"                       component = { Register } />
-        <Route path = "/"                               component = { Home } />
+        <Route path = "/login"                          component = {() => {return (<Login sessionToken={_sessionToken}/>)}}/>
+        <Route path = "/register"                       component = {() => {return (<Register sessionToken={_sessionToken}/>)}} />
+        <Route path = "/"                               component = {() => {return (<Home sessionToken={_sessionToken}/>)}} />
       </Switch>
     </BrowserRouter>
   );

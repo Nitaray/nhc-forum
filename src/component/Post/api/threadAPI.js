@@ -11,8 +11,9 @@ export async function getThread(id) {
         thread: {}
     };
     try {
-        let res = await get(url, { params });
-        res.thread = res.data;
+        let resp = await get(url, { params });
+        res.thread = resp.data;
+        return res;
     } catch (err) {
         res.success = false;
         console.log(err);

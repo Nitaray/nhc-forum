@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "cleanBuild": "rimraf ./build/*",
-    "build": "npm run cleanBuild && set \"GENERATE_SOURCEMAP=false\" && react-scripts build && copy .htaccess build\\",
+    "build": "npm run cleanBuild && set \"GENERATE_SOURCEMAP=true\" && react-scripts build && copy .htaccess build\\",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
