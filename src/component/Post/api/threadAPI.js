@@ -19,6 +19,7 @@ export async function getThread(id) {
     }
     return res;
 }
+
 export async function postThread(title, content, userID, userToken) {
     const res = {
         success: true
@@ -38,7 +39,11 @@ export async function postThread(title, content, userID, userToken) {
     }
     return res;
 }
+
 export async function updateThreadContent(threadID, newContent, userID, userToken) {
+    const res = {
+        success: true
+    }
     const body = {
         ThreadID: threadID,
         Content: newContent,
@@ -47,13 +52,18 @@ export async function updateThreadContent(threadID, newContent, userID, userToke
     };
     const url = serverURL + threadAPIurl + '/updateThreadContent';
     try {
-        let res = await post(url, body);
-        console.log(res);
+        await post(url, body);
     } catch (err) {
+        res.success = false;
         console.log(err);
     }
+    return res;
 }
+
 export async function updateThreadTitle(threadID, newTitle, userID, userToken) {
+    const res = {
+        success: true
+    }
     const body = {
         ThreadID: threadID,
         ThreadTitle: newTitle,
@@ -62,13 +72,18 @@ export async function updateThreadTitle(threadID, newTitle, userID, userToken) {
     };
     const url = serverURL + threadAPIurl + '/updateThreadTitle';
     try {
-        let res = await post(url, body);
-        console.log(res);
+        await post(url, body);
     } catch (err) {
+        res.success = false;
         console.log(err);
     }
+    return res;
 }
+
 export async function deleteThread(threadID, userID, userToken) {
+    const res = {
+        success: true
+    }
     const body = {
         ThreadID: threadID,
         CreatorID: userID,
@@ -77,9 +92,10 @@ export async function deleteThread(threadID, userID, userToken) {
     };
     const url = serverURL + threadAPIurl + '/deleteThread';
     try {
-        let res = await post(url, body);
-        console.log(res);
+        await post(url, body);
     } catch (err) {
+        res.success = false;
         console.log(err);
     }
+    return res;
 }
