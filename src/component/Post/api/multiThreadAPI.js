@@ -3,15 +3,15 @@ import { serverURL, hotPostsAPIurl, newPostsAPIurl, followedPostAPIurl} from '..
 
 export const getHotThreads = async () => {
     const res = {
-        success: true,
+        success: false,
         threads: []
     }
     const url = serverURL + hotPostsAPIurl;
     try {
         let resp = await get(url);
         res.threads = resp.data.IDs;
+        res.success = true;
     } catch (err) {
-        res.success = false;
         console.log(err);
     }
     return res;
@@ -19,15 +19,15 @@ export const getHotThreads = async () => {
 
 export const getNewThreads = async () => {
     const res = {
-        success: true,
+        success: false,
         threads: []
     }
     const url = serverURL + newPostsAPIurl;
     try {
         let resp = await get(url);
         res.threads = resp.data.IDs;
+        res.success = true;
     } catch (err) {
-        res.success = false;
         console.log(err);
     }
     return res;
@@ -35,15 +35,19 @@ export const getNewThreads = async () => {
 
 export const getFollowedThreads = async (userID, userToken) => {
     const res = {
-        success: true,
+        success: false,
         threads: []
+    }
+    const params = {
+        UserID: userID,
+        UserToken: userToken
     }
     const url = serverURL + followedPostAPIurl + '/getFollows';
     try {
-        let resp = await get(url);
+        let resp = await get(url, {params});
         res.threads = resp.data.IDs
+        res.success = true;
     } catch (err) {
-        res.success = false;
         console.log(err);
     }
     return res;
@@ -51,7 +55,7 @@ export const getFollowedThreads = async (userID, userToken) => {
 
 export const makeFollowedThread = async (userID, userToken, threadID) => {
     const res = {
-        success: true
+        success: false
     }
     const body = {
         UserID: userID,
@@ -61,8 +65,8 @@ export const makeFollowedThread = async (userID, userToken, threadID) => {
     const url = serverURL + followedPostAPIurl + '/makeFollow';
     try {
         await post(url, body);
+        res.success = true;
     } catch (err) {
-        res.success = false;
         console.log(err);
     }
     return res;

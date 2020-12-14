@@ -1,23 +1,27 @@
-import React from 'react';
+import React from 'react'
 import clsx from 'clsx'
 
-import HotThreads from '../Post/HotThreads'
 import NavBar from './NavBar'
-import { AppBar, CssBaseline, Grid, Toolbar, IconButton, Typography, Paper, withStyles, Box} from '@material-ui/core';
+import { AppBar, CssBaseline, Grid, Toolbar, IconButton, Typography, withStyles, Box} from '@material-ui/core';
 import { Menu } from '@material-ui/icons'
 
 import style from './style/home'
-import NewThreads from '../Post/NewThreads';
+
+import HotThreads from '../Post/HotThreads'
+import NewThreads from '../Post/NewThreads'
+import FollowedThreads from '../Post/FollowedThreads'
 class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             navBarOpen: true,
-            redirects: []
+            redirects: [],
+            threadType: 'News'
         }
         this.handleDrawerClose = this.handleDrawerClose.bind(this);
         this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
         this.addRedirect = this.addRedirect.bind(this);
+        this.handleThreadType = this.handleThreadType.bind(this);
     }
 
     handleDrawerOpen() {
@@ -36,6 +40,12 @@ class Home extends React.Component {
         this.setState({
             navBarOpen: this.state.navBarOpen,
             redirects: [redirect]
+        })
+    }
+
+    handleThreadType(type) {
+        this.setState({
+            threadType: type
         })
     }
 
@@ -71,6 +81,7 @@ class Home extends React.Component {
                     closeHandler={this.handleDrawerClose}
                     navBarOpen={this.state.navBarOpen}
                     redirectAdder={this.addRedirect}
+                    threadTypeHandler={this.handleThreadType}
                 />
                 <Box className={clsx(classes.bodyBox, {[classes.bodyBoxShift]: this.state.navBarOpen}, 'root')}>
                     <Grid container>
@@ -78,7 +89,17 @@ class Home extends React.Component {
 
                         </Grid>
                         <Grid item xs={12} sm={8} md={6}>
-                            <NewThreads/>
+                            {/* {() => {
+                                switch(this.state.threadType) {
+                                    case "Hot":
+                                        return (<HotThreads/>)
+                                    case "Followed":
+                                        return (<FollowedThreads session={this.props.session}/>)
+                                    default:
+                                        return (<NewThreads/>)
+                                }
+                            }} */}
+                            <FollowedThreads session={this.props.session}/>
                         </Grid>
                         <Grid item xs sm md>
 

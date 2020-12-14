@@ -1,6 +1,6 @@
 import { Component } from 'react'
 
-import ThreadPreview from './ThreadPreview'
+import ThreadPreview, {getThreadPreviews} from './ThreadPreview'
 
 import { getHotThreads } from './api/multiThreadAPI'
 import { getThread } from './api/threadAPI'
@@ -11,23 +11,6 @@ class HotThreads extends Component {
         this.state = {
             hotThreadsPreviews: []
         }
-    }
-
-    async getThreadPreviews(threadIDs) {
-        console.log('Getting previews')
-        let threadPreviews = [];
-        for (const id in threadIDs) {
-            let res = await getThread(threadIDs[id])
-            console.log(res);
-            const author = {
-                AuthorName: res.thread.AuthorUsername,
-                AuthorID: res.thread.AuthorID
-            }
-            threadPreviews.push(<ThreadPreview author={author} title={res.thread.Title}/>)
-            console.log('Got previews\n')
-            console.log(threadPreviews)
-        }
-        return threadPreviews;
     }
 
     componentDidMount() {
