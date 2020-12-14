@@ -38,7 +38,7 @@ class HotThreads extends Component {
                 {this.state.hotThreadsPreviews}
             </>
         ) : (
-            <span>Loading...</span>
+            <span style={{color:'white'}}>Loading...</span>
         )
     }
 }
