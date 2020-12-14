@@ -6,4 +6,5 @@ export const threadAPIurl = '/api/thread'
 export const commentAPIurl = '/api/comment'
 
 export const hotPostsAPIurl = '/api/hotPosts'
+export const newPostsAPIurl = '/api/newPosts'
 export const followedPostAPIurl = '/api/followedPosts'

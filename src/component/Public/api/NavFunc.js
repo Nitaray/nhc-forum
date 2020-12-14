@@ -1,31 +1,50 @@
+import { Redirect } from 'react-router-dom'
 import { submitLogout } from '../../Auth/api/authAPI'
 
-function navToHome() {
-
+function navToHome(redirector) {
+    console.log('navHome')
 }
 
-function navToNews() {
-
+function navToNews(redirector) {
+    console.log('navNew')
 }
 
-function navToHot() {
-
+function navToHot(redirector) {
+    console.log('navHot')
 }
 
-function navToFollowed() {
-
+function navToFollowed(session, redirector) {
+    console.log('navFollow')
 }
 
-function navToThreadCreate() {
-
+function navToThreadCreate(session, redirector) {
+    console.log('navCreate')
 }
 
-function navToThreadSearch() {
-
+function navToThreadSearch(redirector) {
+    console.log('navSearch')
+    alert('This feature is not yet implemented!')
 }
 
-function navToAccount() {
+function navToAccount(session, redirector) {
+    console.log('navAccount')
+    alert('This feature is not yet implemented!')
+}
 
+function navToLogout(session, redirector) {
+    submitLogout(session.id, session.token).then(()=> {
+        session.tokenHandler('');
+        session.idHandler('');
+        redirector((
+        <Redirect to="/"/>
+        ))
+    })
+}
+
+function navToLogin(redirector) {
+    redirector((
+        <Redirect to="/login"/>
+    ))
 }
 
 export const navFunc = {
@@ -33,8 +52,9 @@ export const navFunc = {
     'New': navToNews,
     'Hot': navToHot,
     'Followed': navToFollowed,
-    'CreateThread': navToThreadCreate,
-    'SearchThread': navToThreadSearch,
+    'Create Thread': navToThreadCreate,
+    'Search Thread': navToThreadSearch,
     'My Account': navToAccount,
-    'Logout': submitLogout
+    'Logout': navToLogout,
+    'Login' : navToLogin
 }

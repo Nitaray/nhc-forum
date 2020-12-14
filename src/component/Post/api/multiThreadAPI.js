@@ -1,5 +1,5 @@
 import { get, post } from 'axios';
-import { serverURL, hotPostsAPIurl, followedPostAPIurl} from '../config/url';
+import { serverURL, hotPostsAPIurl, newPostsAPIurl, followedPostAPIurl} from '../config/url';
 
 export const getHotThreads = async () => {
     const res = {
@@ -7,6 +7,22 @@ export const getHotThreads = async () => {
         threads: []
     }
     const url = serverURL + hotPostsAPIurl;
+    try {
+        let resp = await get(url);
+        res.threads = resp.data.IDs;
+    } catch (err) {
+        res.success = false;
+        console.log(err);
+    }
+    return res;
+}
+
+export const getNewThreads = async () => {
+    const res = {
+        success: true,
+        threads: []
+    }
+    const url = serverURL + newPostsAPIurl;
     try {
         let resp = await get(url);
         res.threads = resp.data.IDs;

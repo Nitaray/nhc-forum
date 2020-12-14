@@ -6,16 +6,20 @@ import {
 	PostAdd,
 	Search,
     AccountBox,
-    ExitToApp
+	ExitToApp,
+	VpnKey
 } from "@material-ui/icons";
 
-export default {
+const iconConf = {
 	Home: <Home />,
 	New: <NewReleases />,
 	Hot: <Whatshot />,
 	Followed: <Notifications />,
 	"Create Thread": <PostAdd />,
-    "Search Thread": <Search />,
-    "My Account": <AccountBox />,
-    "Logout": <ExitToApp />
-};
+	"Search Thread": <Search />,
+	"My Account": <AccountBox />,
+	"Logout": <ExitToApp />,
+	"Login": <VpnKey />
+}
+
+export default  iconConf;

@@ -5,7 +5,12 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: 'vw',
         margin: `${theme.spacing(1)}px auto`,
         padding: theme.spacing(2),
+        borderWidth: 10,
+        borderColor:'black'
     },
+    box: {
+        cursor: 'pointer'
+    }
 }));
 
 export default useStyles;

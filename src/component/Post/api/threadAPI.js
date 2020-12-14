@@ -7,15 +7,15 @@ export async function getThread(id) {
     };
     const url = serverURL + threadAPIurl + '/getThread';
     const res = {
-        success: true,
+        success: false,
         thread: {}
     };
     try {
         let resp = await get(url, { params });
+        res.success = true;
         res.thread = resp.data;
         return res;
     } catch (err) {
-        res.success = false;
         console.log(err);
     }
     return res;
@@ -23,7 +23,7 @@ export async function getThread(id) {
 
 export async function postThread(title, content, userID, userToken) {
     const res = {
-        success: true
+        success: false
     }
     const body = {
         ThreadTitle: title,
@@ -34,8 +34,8 @@ export async function postThread(title, content, userID, userToken) {
     const url = serverURL + threadAPIurl + '/postThread';
     try {
         await post(url, body);
+        res.success = true;
     } catch (err) {
-        res.success = false;
         console.log(err);
     }
     return res;
@@ -43,7 +43,7 @@ export async function postThread(title, content, userID, userToken) {
 
 export async function updateThreadContent(threadID, newContent, userID, userToken) {
     const res = {
-        success: true
+        success: false
     }
     const body = {
         ThreadID: threadID,
@@ -54,8 +54,8 @@ export async function updateThreadContent(threadID, newContent, userID, userToke
     const url = serverURL + threadAPIurl + '/updateThreadContent';
     try {
         await post(url, body);
+        res.success = true;
     } catch (err) {
-        res.success = false;
         console.log(err);
     }
     return res;
@@ -63,7 +63,7 @@ export async function updateThreadContent(threadID, newContent, userID, userToke
 
 export async function updateThreadTitle(threadID, newTitle, userID, userToken) {
     const res = {
-        success: true
+        success: false
     }
     const body = {
         ThreadID: threadID,
@@ -74,8 +74,8 @@ export async function updateThreadTitle(threadID, newTitle, userID, userToken) {
     const url = serverURL + threadAPIurl + '/updateThreadTitle';
     try {
         await post(url, body);
+        res.success = true;
     } catch (err) {
-        res.success = false;
         console.log(err);
     }
     return res;
@@ -83,7 +83,7 @@ export async function updateThreadTitle(threadID, newTitle, userID, userToken) {
 
 export async function deleteThread(threadID, userID, userToken) {
     const res = {
-        success: true
+        success: false
     }
     const body = {
         ThreadID: threadID,
@@ -94,8 +94,8 @@ export async function deleteThread(threadID, userID, userToken) {
     const url = serverURL + threadAPIurl + '/deleteThread';
     try {
         await post(url, body);
+        res.success = true;
     } catch (err) {
-        res.success = false;
         console.log(err);
     }
     return res;

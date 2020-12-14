@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Login from './component/Auth/Login';
@@ -8,13 +8,20 @@ import Home from './component/Public/Home';
 import './App.css';
 
 function App() {
-  var _sessionToken;
+  const [_userToken, setToken] = useState('');
+  const [_userID, setID] = useState('');
+  const _session = {
+    token: _userToken,
+    id: _userID,
+    tokenHandler: setToken,
+    idHandler: setID
+  }
   return (
     <BrowserRouter basename='nhc-forum'>
       <Switch>
-        <Route path = "/login"                          component = {() => {return (<Login sessionToken={_sessionToken}/>)}}/>
-        <Route path = "/register"                       component = {() => {return (<Register sessionToken={_sessionToken}/>)}} />
-        <Route path = "/"                               component = {() => {return (<Home sessionToken={_sessionToken}/>)}} />
+        <Route path = "/login"                          component = {() => {return (<Login session={_session}/>)}}/>
+        <Route path = "/register"                       component = {() => {return (<Register session={_session}/>)}} />
+        <Route path = "/"                               component = {() => {return (<Home session={_session}/>)}} />
       </Switch>
     </BrowserRouter>
   );
