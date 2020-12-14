@@ -21,7 +21,7 @@ class HotThreads extends Component {
             hotThreadIds = res.threads;
             console.log('Got hot threads ids');
             console.log(hotThreadIds);
-            this.getThreadPreviews(hotThreadIds)
+            getThreadPreviews(hotThreadIds)
             .then((previews) => {
                 this.setState({
                     hotThreadsPreviews: previews

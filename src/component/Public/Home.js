@@ -89,7 +89,7 @@ class Home extends React.Component {
 
                         </Grid>
                         <Grid item xs={12} sm={8} md={6}>
-                            {/* {() => {
+                            {(() => {
                                 switch(this.state.threadType) {
                                     case "Hot":
                                         return (<HotThreads/>)
@@ -98,8 +98,7 @@ class Home extends React.Component {
                                     default:
                                         return (<NewThreads/>)
                                 }
-                            }} */}
-                            <FollowedThreads session={this.props.session}/>
+                            })()}
                         </Grid>
                         <Grid item xs sm md>
 

@@ -1,20 +1,20 @@
 import { Redirect } from 'react-router-dom'
 import { submitLogout } from '../../Auth/api/authAPI'
 
-function navToHome(redirector) {
-    console.log('navHome')
+function navToHome(redirector, threadTypeHandler) {
+    threadTypeHandler('Home')
 }
 
-function navToNews(redirector) {
-    console.log('navNew')
+function navToNews(redirector, threadTypeHandler) {
+    threadTypeHandler('News')
 }
 
-function navToHot(redirector) {
-    console.log('navHot')
+function navToHot(redirector, threadTypeHandler) {
+    threadTypeHandler('Hot')
 }
 
-function navToFollowed(session, redirector) {
-    console.log('navFollow')
+function navToFollowed(session, redirector, threadTypeHandler) {
+    threadTypeHandler('Followed')
 }
 
 function navToThreadCreate(session, redirector) {

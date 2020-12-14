@@ -36,7 +36,9 @@ class NavBar extends React.Component {
 					{["Home", "New", "Hot", "Followed"].map((text) => {
 						return (token || !requireToken[text]) ? (
 							<ListItem button key={text} onClick={() => { 
-								(requireToken[text]) ? navFunc[text](session, this.props.redirectAdder) : navFunc[text](this.props.redirectAdder)
+								(requireToken[text]) ? 
+								navFunc[text](session, this.props.redirectAdder, this.props.threadTypeHandler) : 
+								navFunc[text](this.props.redirectAdder, this.props.threadTypeHandler)
 							}}>
 								<ListItemIcon>{icons[text]}</ListItemIcon>
 								<ListItemText>{text}</ListItemText>
@@ -52,7 +54,9 @@ class NavBar extends React.Component {
 					{["Create Thread", "Search Thread"].map((text) => {
 						return (token || !requireToken[text]) ? (
 							<ListItem button key={text} onClick={() => {
-								(requireToken[text]) ? navFunc[text](session, this.props.redirectAdder) : navFunc[text](this.props.redirectAdder) 
+								(requireToken[text]) ? 
+								navFunc[text](session, this.props.redirectAdder) : 
+								navFunc[text](this.props.redirectAdder) 
 							}}>
 								<ListItemIcon>{icons[text]}</ListItemIcon>
 								<ListItemText>{text}</ListItemText>
@@ -68,7 +72,9 @@ class NavBar extends React.Component {
 					{["My Account", "Logout", "Login"].map((text) => {
 						return ((token || !requireToken[text]) && (!token || text !== 'Login')) ? (
 							<ListItem button key={text} onClick={() => {
-								(requireToken[text]) ? navFunc[text](session, this.props.redirectAdder) : navFunc[text](this.props.redirectAdder) 
+								(requireToken[text]) ? 
+								navFunc[text](session, this.props.redirectAdder) : 
+								navFunc[text](this.props.redirectAdder) 
 							}}>
 							<ListItemIcon>{icons[text]}</ListItemIcon>
 							<ListItemText>{text}</ListItemText>
