@@ -16,7 +16,7 @@ class Home extends React.Component {
         this.state = {
             navBarOpen: true,
             redirects: [],
-            threadType: 'Hot'
+            threadType: 'New'
         }
         this.handleDrawerClose = this.handleDrawerClose.bind(this);
         this.handleDrawerOpen = this.handleDrawerOpen.bind(this);

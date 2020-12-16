@@ -31,10 +31,8 @@ class Login extends React.Component {
             },
             password: {
                 value: "",
-            },
-            redirect: []
+            }
         };
-        this.handleLogin = this.handleLogin.bind(this);
     }
 
     handleLogin(username, password) {
@@ -50,15 +48,12 @@ class Login extends React.Component {
             } else {
                 alert('Login error! Please try again!')
         }});
-        const redi = (<Redirect to='/' />)
-        this.setState({
-            redirect: [redi]
-        })
-        console.log(this.state.redirect)
     }
 
     render() {
-        return (
+        return this.props.session.token ?  (
+            <Redirect to='/'/>
+        ) : (
             <>
                 <Grid container className="root">
                     <CssBaseline />
@@ -161,7 +156,6 @@ class Login extends React.Component {
                     </Grid>
                     <Grid item xs sm md lg></Grid>
                 </Grid>
-                {this.state.redirect}
             </>
         );
     }

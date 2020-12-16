@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link as RouteLink } from "react-router-dom";
+import { Link as RouteLink, Redirect } from "react-router-dom";
 
 import {
     TextField,
@@ -45,7 +45,9 @@ class Register extends React.Component {
     }
 
     render() {
-        return (
+        return this.props.session.token ? (
+            <Redirect to='/'/>
+        ) : (
             <Grid container className="root">
                 <CssBaseline />
                 <Grid item xs sm md lg></Grid>
@@ -216,7 +218,7 @@ class Register extends React.Component {
                                         <Link component={RouteLink} to="/login">
                                             <Typography variant="body1" align="center">
                                                 Already have an account? Log in here!
-                      </Typography>
+                                            </Typography>
                                         </Link>
                                     </Grid>
                                 </Grid>
