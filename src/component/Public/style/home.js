@@ -1,4 +1,3 @@
-import { makeStyles } from "@material-ui/core";
 import { drawerWidth} from './navBar'
 
 const style = (theme) => ({

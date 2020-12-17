@@ -1,9 +1,8 @@
 import { Component } from 'react'
 
-import ThreadPreview, {getThreadPreviews} from './ThreadPreview'
+import {getThreadPreviews} from './ThreadPreview'
 
 import { getHotThreads } from './api/multiThreadAPI'
-import { getThread } from './api/threadAPI'
 
 class HotThreads extends Component {
     constructor(props) {

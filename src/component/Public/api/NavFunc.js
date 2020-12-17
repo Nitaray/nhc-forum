@@ -2,7 +2,9 @@ import { Redirect } from 'react-router-dom'
 import { submitLogout } from '../../Auth/api/authAPI'
 
 function navToHome(redirector, threadTypeHandler) {
-    threadTypeHandler('Home')
+    redirector((
+        <Redirect to='/'/>
+    ));
 }
 
 function navToNews(redirector, threadTypeHandler) {
