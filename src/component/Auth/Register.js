@@ -74,6 +74,25 @@ class Register extends React.Component {
         })
     }
 
+    handleRegister(email, username, password) {
+        console.log('Logging in')
+        submitRegister(email, username, password)
+            .then(resp => {
+                if (resp.success) {
+                    const id = resp.userID, token = resp.userToken;
+                    this.props.session['idHandler'](id);
+                    this.props.session['tokenHandler'](token);
+                    console.log(`Registration complete!`);
+                    alert('Registration successful! Please log in!')
+                } else {
+                    alert('Registration error! Please try again!')
+                }
+            });
+        this.addRedirect((
+            <Redirect to='/login'/>
+        ))
+    }
+
     render() {
         const {classes} = this.props;
         return this.props.session.token ? (
@@ -240,7 +259,7 @@ class Register extends React.Component {
                                                         });
                                                     }
                                                     : () => {
-                                                        submitRegister(
+                                                        this.handleRegister(
                                                             this.state.email.value,
                                                             this.state.username.value,
                                                             this.state.password.value
@@ -250,7 +269,7 @@ class Register extends React.Component {
                                             className="button"
                                         >
                                             Create account
-                        </Button>
+                                        </Button>
                                     </div>
                                     <div>
                                         <Grid container>
@@ -269,6 +288,7 @@ class Register extends React.Component {
                         <Grid item xs sm md lg></Grid>
                     </Grid>
                 </Box>
+                {this.state.redirects}
             </>
         );
     }
