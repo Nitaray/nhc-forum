@@ -8,15 +8,24 @@ function navToHome(redirector, threadTypeHandler) {
 }
 
 function navToNews(redirector, threadTypeHandler) {
-    threadTypeHandler('News')
+    redirector((
+        <Redirect to='/' />
+    ));
+    threadTypeHandler ? threadTypeHandler('News') : console.log('Redirecting only');
 }
 
 function navToHot(redirector, threadTypeHandler) {
-    threadTypeHandler('Hot')
+    redirector((
+        <Redirect to='/' />
+    ));
+    threadTypeHandler ? threadTypeHandler('Hot') : console.log('Redirecting only');
 }
 
 function navToFollowed(session, redirector, threadTypeHandler) {
-    threadTypeHandler('Followed')
+    redirector((
+        <Redirect to='/' />
+    ));
+    threadTypeHandler ? threadTypeHandler('Followed') : console.log('Redirecting only');
 }
 
 function navToThreadCreate(session, redirector) {

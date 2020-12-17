@@ -1,12 +1,17 @@
 import React from "react";
 
+import clsx from 'clsx'
+
 import {
 	Drawer,
+	AppBar,
+	Toolbar,
 	List,
 	ListItem,
 	ListItemIcon,
 	ListItemText,
 	Divider,
+	Typography,
 	IconButton,
 	withStyles,
 } from "@material-ui/core";
@@ -14,7 +19,7 @@ import {
 import icons from "./config/navIcons";
 import requireToken from './config/navVisibility'
 
-import { ChevronLeft } from "@material-ui/icons";
+import { ChevronLeft, Menu } from "@material-ui/icons";
 
 import { navFunc } from './api/NavFunc'
 
@@ -92,17 +97,40 @@ class NavBar extends React.Component {
 	render() {
 		const {classes} = this.props;
 		return (
-			<Drawer
-                className={classes.drawer}
-				anchor="left"
-				open={this.props.navBarOpen}
-				variant='persistent'
-				classes={{
-					paper: classes.drawerPaper
-				}}
-			>
-				{this.navList(this.props)}
-			</Drawer>
+			<>
+				<AppBar
+						position="fixed"
+						className={clsx(classes.appBar, {
+							[classes.appBarShift]: this.props.navBarOpen,
+						})}
+					>
+						<Toolbar>
+							<IconButton
+								color="inherit"
+								aria-label="open drawer"
+								onClick={this.props.openHandler}
+								edge="start"
+								className={clsx(classes.menuButton, this.props.navBarOpen && classes.hide)}
+							>
+								<Menu/>
+							</IconButton>
+							<Typography variant="h6" noWrap>
+							NHC Forum
+							</Typography>
+						</Toolbar>
+					</AppBar>
+				<Drawer
+					className={classes.drawer}
+					anchor="left"
+					open={this.props.navBarOpen}
+					variant='persistent'
+					classes={{
+						paper: classes.drawerPaper
+					}}
+				>
+					{this.navList(this.props)}
+				</Drawer>
+			</>
 		);
 	}
 }

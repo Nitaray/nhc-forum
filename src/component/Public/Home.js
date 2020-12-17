@@ -2,14 +2,14 @@ import React from 'react'
 import clsx from 'clsx'
 
 import NavBar from './NavBar'
-import { AppBar, CssBaseline, Grid, Toolbar, IconButton, Typography, withStyles, Box} from '@material-ui/core';
-import { Menu } from '@material-ui/icons'
+import { CssBaseline, Grid, withStyles, Box} from '@material-ui/core';
 
-import style from './style/home'
+import style from './style/shiftableContent'
 
 import HotThreads from '../Post/HotThreads'
 import NewThreads from '../Post/NewThreads'
 import FollowedThreads from '../Post/FollowedThreads'
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -55,30 +55,10 @@ class Home extends React.Component {
         return (
             <>
                 <CssBaseline/>
-                <AppBar
-                    position="fixed"
-                    className={clsx(classes.appBar, {
-                        [classes.appBarShift]: this.state.navBarOpen,
-                    })}
-                >
-                    <Toolbar>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={this.handleDrawerOpen}
-                            edge="start"
-                            className={clsx(classes.menuButton, this.state.navBarOpen && classes.hide)}
-                        >
-                            <Menu/>
-                        </IconButton>
-                        <Typography variant="h6" noWrap>
-                            NHC Forum
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
                 <NavBar
                     session={this.props.session}
                     closeHandler={this.handleDrawerClose}
+                    openHandler={this.handleDrawerOpen}
                     navBarOpen={this.state.navBarOpen}
                     redirectAdder={this.addRedirect}
                     threadTypeHandler={this.handleThreadType}
