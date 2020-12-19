@@ -2,7 +2,7 @@ import React from 'react';
 
 import clsx from 'clsx'
 
-import { Box, CssBaseline, Divider, Grid, Paper, Typography, withStyles } from '@material-ui/core';
+import { Box, CssBaseline, Divider, Grid, Paper, TextField, Typography, withStyles } from '@material-ui/core';
 import NavBar from '../Public/NavBar';
 
 import { getThread } from './api/threadAPI'
@@ -101,9 +101,22 @@ class Thread extends React.Component {
                                 </Typography>
                             </Paper>
                             <Paper className={classes.paper}>
-                                <Typography>
-                                    {this.state.content}
-                                </Typography>
+                                <TextField
+                                    id="content"
+                                    label="Content"
+                                    className={classes.textfield}
+                                    type="text"
+                                    value={this.state.content}
+                                    variant="outlined"
+                                    InputProps={{
+                                        readOnly: true,
+                                    }}
+                                    margin="normal"
+                                    multiline
+                                    rows={4}
+                                    rowsMax={16}>
+
+                                </TextField>
                             </Paper>
                             {(()=>{
                                 const dividers = [];

@@ -14,7 +14,6 @@ export async function getThread(id) {
         let resp = await get(url, { params });
         res.success = true;
         res.thread = resp.data;
-        return res;
     } catch (err) {
         console.log(err);
     }
@@ -31,7 +30,7 @@ export async function postThread(title, content, userID, userToken) {
         CreatorID: userID,
         UserToken: userToken
     };
-    const url = serverURL + threadAPIurl + '/postThread';
+    const url = serverURL + threadAPIurl + '/createThread';
     try {
         await post(url, body);
         res.success = true;

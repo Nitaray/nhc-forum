@@ -29,7 +29,14 @@ function ThreadPreview(props) {
                             <Avatar>{props.author.AuthorName[0].toUpperCase()}</Avatar>
                         </Grid>
                         <Grid item xs zeroMinWidth>
-                            <Typography noWrap align='left'>{props.title}</Typography>
+                            <Typography noWrap align='left'>
+                                <Box fontWeight='fontWeightBold'>
+                                    {props.title}
+                                </Box>
+                                <Box fontStyle='italic'>
+                                    {props.author.AuthorName}
+                                </Box>
+                            </Typography>
                         </Grid>
                     </Grid>
                 </Paper>

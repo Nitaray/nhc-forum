@@ -29,7 +29,10 @@ function navToFollowed(session, redirector, threadTypeHandler) {
 }
 
 function navToThreadCreate(session, redirector) {
-    console.log('navCreate')
+    console.log('Redirecting to create Thread')
+    redirector((
+        <Redirect to='/createThread' />
+    ));
 }
 
 function navToThreadSearch(redirector) {

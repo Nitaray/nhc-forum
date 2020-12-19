@@ -6,6 +6,9 @@ const style = (theme) => ({
         borderWidth: 10,
         borderColor: 'black'
     },
+    textfield: {
+        width: '100%',
+    },
 });
 
 export default style;
