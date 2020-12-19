@@ -36,7 +36,7 @@ class NewThreads extends Component {
                 {this.state.newThreadsPreviews}
             </>
         ) : (
-                <span style={{color: 'white'}}>Loading...</span>
+                <span style={{ color: 'white', cursor: 'progress'}}>Loading...</span>
             )
     }
 }

@@ -7,6 +7,7 @@ import Home from './component/Public/Home';
 
 import './App.css';
 import { Helmet } from 'react-helmet';
+import Thread from './component/Post/Thread';
 
 function App() {
   const [_userToken, setToken] = useState('');
@@ -24,7 +25,8 @@ function App() {
       </Helmet>
       <BrowserRouter basename='nhc-forum'>
         <Switch>
-          <Route path = "/login"                          component = {() => {return (<Login session={_session}/>)}}/>
+          <Route path = "/thread"                         render    = {(props) => <Thread {...props} session={_session}/>} />
+          <Route path = "/login"                          component = {() => {return (<Login session={_session}/>)}} />
           <Route path = "/register"                       component = {() => {return (<Register session={_session}/>)}} />
           <Route path = "/"                               component = {() => {return (<Home session={_session}/>)}} />
         </Switch>

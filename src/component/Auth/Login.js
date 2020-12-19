@@ -22,7 +22,9 @@ import LockOpenIcon from '@material-ui/icons/LockOpen';
 import { validate } from "./api/Validate";
 import { submitLogin } from "./api/authAPI";
 
-import style from '../Public/style/shiftableContent'
+import layoutStyle from '../Public/style/shiftableContent';
+import loginStyle from './style/loginStyle';
+
 import NavBar from "../Public/NavBar";
 
 class Login extends React.Component {
@@ -104,8 +106,8 @@ class Login extends React.Component {
                                         <h1>LOGIN TO NHC FORUM</h1>
                                     </div>
                                     <div>
-                                        <Avatar className='avatar'>
-                                            <LockOpenIcon color='secondary' />
+                                        <Avatar className={classes.avatar}>
+                                            <LockOpenIcon />
                                         </Avatar>
                                     </div>
                                     <div>
@@ -202,4 +204,4 @@ class Login extends React.Component {
     }
 }
 
-export default withStyles(style, {withTheme: true})(Login);
+export default withStyles((theme) => ({...layoutStyle(theme), ...loginStyle(theme)}), {withTheme: true})(Login);

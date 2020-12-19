@@ -13,6 +13,9 @@ export const getComment = async (commentID) => {
     try {
         let resp = await get(url, {params});
         res.comment = resp.data;
+        console.log(`Getting comment with id ${commentID}`)
+        console.log(res.comment)
+        return res;
     } catch (err) {
         res.success = false;
         console.log(err);
